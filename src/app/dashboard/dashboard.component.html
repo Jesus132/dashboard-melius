@@ -1,0 +1,21 @@
+<div class="page">
+  
+  <div class="top">
+    <div id=text></div> 
+    <span class="_1"></span>
+    <span class="_2"></span>
+    <span class="_3"></span>
+  </div>
+  
+  <div lb-gridstack [options]="{}" width="8" (change)="onWidgetGridChange($event)">
+  
+      <div lb-gridstack-item *ngFor="let widget of dash.widgets" [x]="widget.x" [y]="widget.y" [width]="widget.width"
+        [height]="widget.height" [id]="widget.i" (change)="WidgetChange($event, widget)">
+        <app-grid-widget ID={{widget.i}}></app-grid-widget>
+      </div>
+  
+    </div>
+    
+</div>
+
+<div class="circle-menu" (click)="AddWidget()"></div>

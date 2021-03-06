@@ -1,0 +1,125 @@
+<div class="card">
+
+    <div class="card-icon gridDragg" (click)="h()" (mousedown)="Dragg=!Dragg" (mouseup)="Dragg=!Dragg;"
+      [ngClass]=" Dragg ? 'gridDrabbing' : 'gridDrab'">
+      <i class=" material-icons md-36 md-light">
+        <svg *ngIf="chartOptions.chart.type === 'bar'" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart-line-fill" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <rect width="4" height="5" x="1" y="10" rx="1" />
+          <rect width="4" height="9" x="6" y="6" rx="1" />
+          <rect width="4" height="14" x="11" y="1" rx="1" />
+          <path fill-rule="evenodd" d="M0 14.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+        </svg>
+        <svg *ngIf="chartOptions.chart.type === 'area'" viewBox="0 0 24 24" fill="white"><g data-name="Layer 2"><g data-name="activity"><rect width="24" height="24" transform="rotate(90 12 12)" opacity="0"/><path d="M14.33 20h-.21a2 2 0 0 1-1.76-1.58L9.68 6l-2.76 6.4A1 1 0 0 1 6 13H3a1 1 0 0 1 0-2h2.34l2.51-5.79a2 2 0 0 1 3.79.38L14.32 18l2.76-6.38A1 1 0 0 1 18 11h3a1 1 0 0 1 0 2h-2.34l-2.51 5.79A2 2 0 0 1 14.33 20z"/></g></g></svg>
+        <svg  *ngIf="chartOptions.chart.type === 'line'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="36px" height="36px">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
+        </svg>
+      </i>
+    </div>
+
+      <apx-chart
+      #chart
+      [series]="chartOptions.series" 
+      [chart]="chartOptions.chart" 
+      [xaxis]="chartOptions.xaxis"
+      [autoUpdateSeries]="true"
+      ></apx-chart>
+
+  
+    <ul>
+
+      <li class="icon _1" (click)="WidgetDelet()">
+        <a>
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+          </svg>
+        </a>
+      </li>
+
+      <li class="icon _2" (click)="clickNavigation=!clickNavigation">
+        <a>
+          <svg style="font-size: 0.7rem;" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear"
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z" />
+            <path fill-rule="evenodd"
+              d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z" />
+          </svg>
+        </a>
+      </li>
+
+    </ul>
+  
+  </div>
+
+
+  <nav class="navigation" [ngClass]="clickNavigation ? 'open' : ''">
+    <div class="outmenu" (click)="clickNavigation=!clickNavigation"></div>
+    <div class="menu">
+  
+      <div id="inputs-list" class="form scrolll">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Rango de fechas</mat-label>
+          <mat-date-range-input [formGroup]="range" [rangePicker]="picker" [(min)]="minDate" [(max)]="maxDate">
+            <input matStartDate formControlName="start" placeholder="Final inicial">
+            <input (dateInput)="calend()" matEndDate formControlName="end" placeholder="Fecha final">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        
+          <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+          <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+        </mat-form-field>
+
+        <div class="btn btn-dark" (click)="filtre()">Filtro</div>
+
+      </div>
+  
+      <div class="cardo scrolll">
+  
+        <div class="cardu" (click)="ConfChart('bar')">
+          <i class=" material-icons md-36 md-light">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart-line-fill" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect width="4" height="5" x="1" y="10" rx="1" />
+              <rect width="4" height="9" x="6" y="6" rx="1" />
+              <rect width="4" height="14" x="11" y="1" rx="1" />
+              <path fill-rule="evenodd" d="M0 14.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+            </svg>
+          </i>
+        </div>
+  
+        <div class="cardu" (click)="ConfChart('area')">
+          <i class=" material-icons md-36 md-light">
+            <svg viewBox="0 0 24 24" fill="white"><g data-name="Layer 2"><g data-name="activity"><rect width="24" height="24" transform="rotate(90 12 12)" opacity="0"/><path d="M14.33 20h-.21a2 2 0 0 1-1.76-1.58L9.68 6l-2.76 6.4A1 1 0 0 1 6 13H3a1 1 0 0 1 0-2h2.34l2.51-5.79a2 2 0 0 1 3.79.38L14.32 18l2.76-6.38A1 1 0 0 1 18 11h3a1 1 0 0 1 0 2h-2.34l-2.51 5.79A2 2 0 0 1 14.33 20z"/></g></g></svg>
+          </i>
+        </div>
+  
+        <div class="cardu" (click)="ConfChart('line')">
+          <i class=" material-icons md-36 md-light">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="36px" height="36px">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
+            </svg>
+          </i>
+        </div>
+  
+        <div class="cardu" (click)="ConfChart('line-rot')">
+          <i class=" material-icons md-36 md-light">
+            <svg class="rot" viewBox="0 0 24 24" fill="white" width="36px" height="36px">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
+            </svg>
+          </i>
+        </div>
+
+  
+  
+      </div>
+  
+    </div>
+  </nav>
