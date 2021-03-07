@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api: 'https://API.jesus132.repl.co'
+  // api: 'https://dash-321.herokuapp.com/shop'
+  api: 'https://dash-321.herokuapp.com/shop'
 };
 
 /*
